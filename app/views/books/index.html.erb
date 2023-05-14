@@ -1,41 +1,43 @@
 <div class="container">
-  <div class="col-3">
-    <!--render-->
-    <h2>User Info</h2>
-    
-    <!--render-->
-    <h2>New Book</h2>
-  </div>
-  
-  <div class="col-1"></div>
-  
-  <div class="col-8">
-    <h3>Books</h3>
-    <table class="table">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Title</th>
-          <th>Opinion</th>
-        </tr>
-      </thead>
-      
-      <tbody>
-        <% @books.each do |book| %>
-        <tr>
-          <td>
-            <!--リンクして各Userに遷移させる-->
-            UserImage
-          </td>
-          <td>
-            <%= link_to book_path(@book) do %>
-              <%= book.title %>
-            <% end %>
-          </td>
-          <td><%= book.body %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <div class="row">
+    <div class="col-3 mt-3">
+      <%= render 'users/info', user: @user %>
+
+      <!--render-->
+      <h2>New Book</h2>
+      <%= render 'form', book_new: @book_new %>
+    </div>
+
+    <div class="col-1"></div>
+
+    <div class="col-8 mt-3">
+      <h3>Books</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @books.each do |book| %>
+          <tr>
+            <td>
+              <!--リンクして各Userに遷移させる-->
+              UserImage
+            </td>
+            <td>
+              <%= link_to book_path(@book) do %>
+                <%= book.title %>
+              <% end %>
+            </td>
+            <td><%= book.body %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

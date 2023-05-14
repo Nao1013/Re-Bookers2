@@ -1,24 +1,39 @@
-<div class="container">
-  <div class="col-3">
-    <!--render-->
-    <h2>User Info</h2>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-3">
+      <!--render-->
+      <%= render 'users/info', user: @user %>
+      <!--render-->
+      <h2>New Book</h2>
+      <%= render 'form', book_new: @book_new %>
+    </div>
     
-    <!--render-->
-    <h2>New Book</h2>
-  </div>
-  
-  <div class="col-1"></div>
-  
-  <div class="col-8">
-    <h3 class="border-bottom">Book detail</h3>
+    <div class="col-1"></div>
     
-    <!--リンクして各Userへ遷移する-->
-    <p>userImage</p>
-    <p>
-      <%= link_to book_path(@book) do %>
-        <%= @book.title %>
-      <% end %>
-    </p>
-    <p><%= @book.body %></p>
+    <div class="col-8">
+      <h2>Book detail</h2>
+      
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>
+              <!--リンクして各Userへ遷移する-->
+              userImage<br>
+              Username
+            </td>
+            <td>
+              <%= link_to book_path(@book) do %>
+                <%= @book.title %>
+              <% end %>
+            </td>
+            <td>
+              <%= @book.body %>
+            </td>
+            <td><%= link_to "Edit", edit_book_path(@book), class: "btn btn-success btn-sm" %></td>
+            <td><%= link_to 'Destroy', book_path(@book), method: :delete, class: "btn btn-danger btn-sm", "data-confirm" => "本当に削除しますか？" %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
