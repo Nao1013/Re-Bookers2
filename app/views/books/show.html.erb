@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="col-3">
+    <!--render-->
+    <h2>User Info</h2>
+    
+    <!--render-->
+    <h2>New Book</h2>
+  </div>
+  
+  <div class="col-1"></div>
+  
+  <div class="col-8">
+    <h3 class="border-bottom">Book detail</h3>
+    
+    <!--リンクして各Userへ遷移する-->
+    <p>userImage</p>
+    <p>
+      <%= link_to book_path(@book) do %>
+        <%= @book.title %>
+      <% end %>
+    </p>
+    <p><%= @book.body %></p>
+  </div>
+</div>
