@@ -18,8 +18,9 @@
           <tr>
             <td>
               <!--リンクして各Userへ遷移する-->
-              userImage<br>
-              Username
+              <%= link_to user_path(@user) do %>
+                <%= image_tag @user.get_profile_image(50, 50) %>
+              <% end %>
             </td>
             <td>
               <%= link_to book_path(@book) do %>
