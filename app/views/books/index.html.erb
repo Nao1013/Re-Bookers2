@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-3 mt-3">
+    <div class="col-md-3 mt-3">
       <% if @book.errors.any? %>
         <h3 class="mt-3"><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
         <ul>
@@ -9,17 +9,15 @@
           <% end %>
         </ul>
       <% end %>
-      
+
       <%= render 'users/info', user: @user %>
 
       <!--render-->
-      <h2>New Book</h2>
+      <h2>New book</h2>
       <%= render 'form', book: @book_new %>
     </div>
 
-    <div class="col-1"></div>
-
-    <div class="col-8 mt-3">
+    <div class="col-md-8 offset-md-1 mt-3">
       <h3>Books</h3>
       <table class="table">
         <thead>
@@ -34,9 +32,8 @@
           <% @books.each do |book| %>
           <tr>
             <td>
-              <% user = book.user %>
-               <%= link_to user_path(user) do %>
-                 <%= image_tag user.get_profile_image(50, 50) %>
+               <%= link_to user_path(book.user.id) do %>
+                 <%= image_tag book.user.get_profile_image(50, 50) %>
                <% end %>
             </td>
             <td>

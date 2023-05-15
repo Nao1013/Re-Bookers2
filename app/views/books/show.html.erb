@@ -1,16 +1,14 @@
 <div class="container mt-3">
   <div class="row">
-    <div class="col-3">
+    <div class="col-md-3">
       <!--render-->
       <%= render 'users/info', user: @user %>
       <!--render-->
-      <h2>New Book</h2>
+      <h2>New book</h2>
       <%= render 'form', book: @books %>
     </div>
 
-    <div class="col-1"></div>
-
-    <div class="col-8">
+    <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
 
       <table class="table">
@@ -19,7 +17,8 @@
             <td>
               <!--リンクして各Userへ遷移する-->
               <%= link_to user_path(@user) do %>
-                <%= image_tag @user.get_profile_image(50, 50) %>
+                <%= image_tag @user.get_profile_image(50, 50) %><br>
+                <%= @user.name %>
               <% end %>
             </td>
             <td>
