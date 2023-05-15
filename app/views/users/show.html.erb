@@ -13,15 +13,27 @@
     <div class="col-8">
       <h2>Books</h2>
 
-     <table>
-       <tr>
-         <tbody>
-           <% @books.each do |book| %>
-             <td><%= book.title %></td>
-             <td><% book.body %></td>
-           <% end %>
-         </tbody>
-       </tr>
+     <table class=table>
+       <thead>
+         <tr>
+           <th></th>
+           <th>Title</th>
+           <th>Opinion</th>
+         </tr>
+       </thead>
+       <tbody>
+          <% @books.each do |book| %>
+           <tr>
+             <td><%= image_tag @user.get_profile_image(50,50) %></td>
+             <td>
+               <%= link_to book_path(book) do %>
+                 <%= book.title %>
+               <% end %>
+              </td>
+             <td><%= book.body %></td>
+           </tr>
+         <% end %>
+       </tbody>
      </table>
     </div>
   </div>

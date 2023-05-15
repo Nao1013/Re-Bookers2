@@ -3,6 +3,7 @@ class BooksController < ApplicationController
   def create
     @user = current_user
     @book = Book.new(book_params)
+    @book.user_id = current_user.id
     if @book.save
       redirect_to book_path(@book), notice: 'You have created book successfully.'
     else
@@ -16,7 +17,6 @@ class BooksController < ApplicationController
     @book_new = Book.new
     @books = Book.all
     @user = current_user
-    # @user = @book.userで反映されない
   end
 
   def show
